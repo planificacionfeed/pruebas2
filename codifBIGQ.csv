@@ -1,4 +1,177 @@
-articulo_id;articulo_desc;articulo_origen;articulo_categoria;articulo_saludable;punto_venta;fecha_ult_modif
-PFEP00028;Empanada Cheeseburguer x1 ;FEED;EMPANADA WARMER;No saludable;Otro;2026-05-11
-PFPW00269;Ravioles de espinaca con fileto y parmesano ;FEED;Smart Choice;Saludable;Otro;2026-05-11
-NFSD00106;Paleta proteica x 70 gr Chocolate;NO FEED;Helado;Saludable;Otro;2026-05-11
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hola Mundo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --accent: #e8c97a;
+      --text: #f0ede6;
+      --muted: #5a5870;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Fondo con círculos difusos */
+    .bg-orbs {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.18;
+    }
+    .orb-1 {
+      width: 600px; height: 600px;
+      background: #e8c97a;
+      top: -200px; left: -200px;
+      animation: drift1 12s ease-in-out infinite alternate;
+    }
+    .orb-2 {
+      width: 400px; height: 400px;
+      background: #7a8ce8;
+      bottom: -150px; right: -100px;
+      animation: drift2 10s ease-in-out infinite alternate;
+    }
+    @keyframes drift1 { to { transform: translate(80px, 60px); } }
+    @keyframes drift2 { to { transform: translate(-60px, -80px); } }
+
+    /* Contenedor principal */
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* Línea decorativa superior */
+    .deco-line {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+    .deco-line span {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--muted));
+    }
+    .deco-line span:last-child {
+      background: linear-gradient(to left, transparent, var(--muted));
+    }
+    .deco-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Título principal */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(4rem, 12vw, 9rem);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.4s;
+    }
+
+    h1 .word-hola {
+      display: block;
+      color: var(--text);
+    }
+    h1 .word-mundo {
+      display: block;
+      -webkit-text-stroke: 2px var(--accent);
+      color: transparent;
+    }
+
+    /* Subtítulo */
+    .subtitle {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.8s;
+    }
+
+    /* Línea inferior */
+    .deco-line-bottom {
+      margin-top: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1s;
+    }
+
+    /* Cursor parpadeante decorativo */
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background: var(--accent);
+      margin-left: 0.15em;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div class="container">
+    <div class="deco-line">
+      <span></span>
+      <div class="deco-dot"></div>
+      <div class="deco-dot"></div>
+      <div class="deco-dot"></div>
+      <span></span>
+    </div>
+
+    <h1>
+      <span class="word-hola">Hola</span>
+      <span class="word-mundo">Mundo<span class="cursor"></span></span>
+    </h1>
+
+    <p class="subtitle">Bienvenido a la web</p>
+
+    <div class="deco-line deco-line-bottom">
+      <span></span>
+      <div class="deco-dot"></div>
+      <span></span>
+    </div>
+  </div>
+
+</body>
+</html>
